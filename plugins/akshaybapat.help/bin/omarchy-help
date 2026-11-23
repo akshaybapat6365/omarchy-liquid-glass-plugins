@@ -1,0 +1,52 @@
+#!/usr/bin/env bash
+# omarchy-help — Control the Liquid Glass Shortcuts, Gestures & Quick Help Center.
+#
+# Usage:
+#   omarchy-help [toggle|open|close|ping|refresh|shortcuts|gestures|tools|guide]
+
+set -euo pipefail
+
+PLUGIN_ID="akshaybapat.help"
+VERB="${1:-toggle}"
+
+case "$VERB" in
+  toggle)
+    exec omarchy-shell shell toggle "$PLUGIN_ID" '{}'
+    ;;
+  open)
+    exec omarchy-shell shell summon "$PLUGIN_ID" '{}'
+    ;;
+  close)
+    exec omarchy-shell shell hide "$PLUGIN_ID"
+    ;;
+  ping)
+    omarchy-shell shell call "$PLUGIN_ID" ping '{}' 2>/dev/null || exec omarchy-shell help ping
+    ;;
+  refresh)
+    omarchy-shell shell call "$PLUGIN_ID" refresh '{}' 2>/dev/null || exec omarchy-shell help refresh
+    ;;
+  shortcuts | gestures | tools | guide)
+    exec omarchy-shell shell summon "$PLUGIN_ID" "{\"tab\":\"$VERB\"}"
+    ;;
+  -h | --help | help)
+    cat <<'USAGE'
+Usage: omarchy-help [command]
+
+Commands:
+  toggle      Toggle the Shortcuts & Help Center overlay (default)
+  open        Open the Help Center overlay
+  close       Close the Help Center overlay
+  shortcuts   Open directly to the Shortcuts tab
+  gestures    Open directly to the Trackpad Gestures tab
+  tools       Open directly to the Custom Tools tab
+  guide       Open directly to the Quick Guide tab
+  refresh     Refresh live bindings and tool telemetry
+  ping        Health check
+USAGE
+    exit 0
+    ;;
+  *)
+    echo "omarchy-help: unknown command '$VERB'. Try 'omarchy-help --help'." >&2
+    exit 2
+    ;;
+esac

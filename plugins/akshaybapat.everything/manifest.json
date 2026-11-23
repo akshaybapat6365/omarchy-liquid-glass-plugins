@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "id": "akshaybapat.everything",
+  "name": "Everything",
+  "version": "0.0.1+akshay.1",
+  "author": "Akshay Bapat; derived from Brian Blakely",
+  "description": "List, search, and jump directly to every app, tab, buffer, agent... everything.",
+  "license": "MIT",
+  "kinds": ["service", "bar-widget"],
+  "keepLoaded": true,
+  "entryPoints": {
+    "service": "Service.qml",
+    "barWidget": "Everything.qml"
+  },
+  "barWidget": {
+    "displayName": "Everything",
+    "description": "Search windows, tabs, panes, sessions, agents, and buffers",
+    "category": "Compositor",
+    "allowMultiple": false,
+    "defaultSection": "left"
+  },
+  "upstream": {
+    "repository": "https://github.com/brianblakely/omarchy-everything.git",
+    "revision": "f3f512b7ea1de4bd092a1e0175bf2c575820e8f9",
+    "id": "b.everything",
+    "version": "0.0.1"
+  }
+}

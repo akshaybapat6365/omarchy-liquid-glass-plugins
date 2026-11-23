@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "id": "akshaybapat.help",
+  "name": "Shortcuts & Help",
+  "version": "1.0.0",
+  "author": "Akshay Bapat",
+  "description": "Liquid Glass interactive Shortcuts, Trackpad Gestures, Custom Tools & Quick Help Center.",
+  "kinds": [
+    "overlay"
+  ],
+  "keepLoaded": true,
+  "entryPoints": {
+    "overlay": "Help.qml"
+  }
+}

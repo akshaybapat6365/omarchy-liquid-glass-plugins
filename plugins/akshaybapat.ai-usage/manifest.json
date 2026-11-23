@@ -1,0 +1,79 @@
+{
+  "schemaVersion": 1,
+  "id": "akshaybapat.ai-usage",
+  "name": "AI Usage",
+  "version": "1.15.2+akshay.1",
+  "author": "Akshay Bapat; derived from AkitaOnRails",
+  "license": "MIT",
+  "description": "Every configured AI provider's quota at once, as precision circular dials and figures in the bar.",
+  "kinds": [
+    "bar-widget"
+  ],
+  "activation": "on-demand",
+  "entryPoints": {
+    "barWidget": "ui/v1_15_2/BarWidget.qml"
+  },
+  "barWidget": {
+    "displayName": "AI Usage",
+    "description": "One circular dial per provider with its mark centered inside, a pace tick, and the percent used. Click a cell for its usage panel.",
+    "category": "AI",
+    "aliases": [
+      "ai-usage",
+      "usagebar",
+      "quota"
+    ],
+    "allowMultiple": false,
+    "defaultSection": "right",
+    "defaults": {
+      "refreshIntervalSec": 300,
+      "showPercent": true,
+      "showMeter": true,
+      "compact": false,
+      "providers": ""
+    },
+    "schema": [
+      {
+        "key": "refreshIntervalSec",
+        "type": "integer",
+        "label": "Refresh interval (seconds)",
+        "min": 30,
+        "max": 3600,
+        "step": 30,
+        "defaultValue": 300
+      },
+      {
+        "key": "showPercent",
+        "type": "boolean",
+        "label": "Show the percentage next to each mark",
+        "description": "Off leaves a strip of marks and dials. \"sign in\" stays, and the tooltip still has the numbers.",
+        "defaultValue": true
+      },
+      {
+        "key": "showMeter",
+        "type": "boolean",
+        "label": "Show the quota ring around each provider",
+        "description": "The circular ring fills clockwise as the plan is used, with a pace tick where the plan's window is known.",
+        "defaultValue": true
+      },
+      {
+        "key": "compact",
+        "type": "boolean",
+        "label": "Compact strip",
+        "description": "Dials and marks only, for a crowded bar or a long list of providers.",
+        "defaultValue": false
+      },
+      {
+        "key": "providers",
+        "type": "string",
+        "label": "Providers to show",
+        "description": "Comma-separated ids from ai-usagebar usage --json, for example 'anthropic,openai,cursor'. This both filters and orders the strip. Leave blank for every configured provider in the engine's own order.",
+        "defaultValue": ""
+      }
+    ]
+  },
+  "upstream": {
+    "repository": "https://github.com/akitaonrails/ai-usagebar.git",
+    "revision": "f274e035f1cd",
+    "id": "akitaonrails.ai-usagebar"
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "id": "akshaybapat.window-shelf",
+  "name": "Minimize",
+  "version": "1.1.0",
+  "author": "Akshay Bapat; derived from Mike Gardner",
+  "license": "MIT",
+  "description": "Minimize Hyprland windows into Omarchy bar chips with icons, live previews, and interactive Peek. The bar button toggles: it minimizes the focused window, and brings the last minimized window back when there is nothing to minimize.",
+  "kinds": [
+    "bar-widget"
+  ],
+  "activation": "on-demand",
+  "entryPoints": {
+    "barWidget": "ui/v1_1_0/BarWidget.qml"
+  },
+  "barWidget": {
+    "displayName": "Minimize",
+    "description": "One button that minimizes and restores, plus a chip per minimized window with hover preview and right-click Peek.",
+    "category": "Compositor",
+    "aliases": [
+      "minimize",
+      "restore",
+      "windows",
+      "shelf",
+      "taskbar"
+    ],
+    "allowMultiple": false,
+    "defaultSection": "left",
+    "defaults": {
+      "showTitles": false
+    },
+    "schema": [
+      {
+        "key": "showTitles",
+        "type": "boolean",
+        "label": "Show window titles on chips",
+        "description": "Off: each minimized window is its app icon only (title on hover). On: icon plus a shortened title, as upstream draws it.",
+        "defaultValue": false
+      }
+    ]
+  },
+  "upstream": {
+    "repository": "https://github.com/gardnmi/omarchy-minimize.git",
+    "revision": "5c29836d0c21e852477874dc73bb85976781dfa7",
+    "id": "io.github.gardnmi.window-shelf",
+    "version": "0.3.4"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "akshaybapat.notification-center",
+  "name": "Notification Center",
+  "version": "2.0.0",
+  "author": "Akshay Bapat; derived from Shavanced",
+  "license": "MIT",
+  "description": "A keyboard-first, app-grouped notification center that reads Omarchy's existing filtered history without replacing the notification service.",
+  "kinds": [
+    "service",
+    "bar-widget"
+  ],
+  "keepLoaded": true,
+  "entryPoints": {
+    "service": "Service.qml",
+    "barWidget": "BarWidget.qml"
+  },
+  "barWidget": {
+    "displayName": "Notifications",
+    "description": "Grouped unread notifications, actions, history, and DND",
+    "category": "System",
+    "defaultSection": "right",
+    "allowMultiple": false
+  },
+  "upstream": {
+    "repository": "https://github.com/Shavanced/omarchy-notification-center-plugin.git",
+    "revision": "8fa2c0c3610df67eb245c73ef42b81ada073b244"
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": "akshaybapat.vitals",
+  "name": "GPU Monitor",
+  "version": "1.3.0+akshay.1",
+  "author": "Woogy7",
+  "license": "MIT",
+  "description": "A calm, tabbed system monitor: CPU, memory, disks, network, GPU, sensors and sortable processes in one Omarchy panel",
+  "homepage": "https://github.com/Woogy7/omarchy-vitals",
+  "kinds": [
+    "bar-widget"
+  ],
+  "entryPoints": {
+    "barWidget": "ui/v1_3_0/BarWidget.qml"
+  },
+  "barWidget": {
+    "displayName": "GPU Monitor",
+    "description": "Chip icon in the bar; click for a btop-style system monitor with tabs for CPU, memory, disks, network, GPU, sensors and processes",
+    "category": "System",
+    "allowMultiple": false,
+    "defaultSection": "right",
+    "defaults": {
+      "refreshSeconds": 2
+    },
+    "schema": [
+      {
+        "key": "refreshSeconds",
+        "type": "integer",
+        "label": "Refresh interval (seconds)",
+        "min": 1,
+        "max": 10,
+        "step": 1,
+        "defaultValue": 1
+      }
+    ]
+  },
+  "upstream": {
+    "repository": "https://github.com/Woogy7/omarchy-vitals.git",
+    "revision": "cf345b33c938e7d0cf5b57d7cad088052f157e11",
+    "id": "io.github.woogy7.vitals"
+  }
+}

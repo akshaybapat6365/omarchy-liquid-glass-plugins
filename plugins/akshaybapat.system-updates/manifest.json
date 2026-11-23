@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "id": "akshaybapat.system-updates",
+  "name": "System Updates",
+  "version": "1.5.0+akshay.1",
+  "author": "Akshay Bapat; derived from Dizziee",
+  "license": "MIT",
+  "description": "Arch, AUR, Flatpak, Omarchy, and add-on update indicator with per-repo update buttons.",
+  "kinds": [
+    "bar-widget"
+  ],
+  "entryPoints": {
+    "barWidget": "Panel.qml"
+  },
+  "barWidget": {
+    "displayName": "System Updates",
+    "description": "Shows available updates from pacman, AUR, Flatpak, Omarchy, and Omarchy shell add-ons.",
+    "category": "System",
+    "allowMultiple": false,
+    "defaults": {
+      "refreshIntervalSec": 1800,
+      "alwaysShow": true,
+      "autoRefresh": true
+    },
+    "schema": [
+      {
+        "key": "refreshIntervalSec",
+        "type": "integer",
+        "label": "Refresh interval (seconds)",
+        "min": 300,
+        "max": 7200,
+        "step": 300,
+        "defaultValue": 1800
+      },
+      {
+        "key": "alwaysShow",
+        "type": "boolean",
+        "label": "Always Show",
+        "description": "Keep the icon visible even when no updates are available.",
+        "defaultValue": true
+      },
+      {
+        "key": "autoRefresh",
+        "type": "boolean",
+        "label": "Automatic checks",
+        "description": "Check on the interval and once after startup. Off means checks run only when the panel is opened.",
+        "defaultValue": true
+      }
+    ]
+  },
+  "upstream": {
+    "repository": "https://github.com/JJDizz1L/dizziee.system-updates.git",
+    "revision": "5bdd67ac3be06035dbc8ba20440a5a476156d4f2",
+    "id": "dizziee.system-updates",
+    "version": "1.5.0"
+  }
+}

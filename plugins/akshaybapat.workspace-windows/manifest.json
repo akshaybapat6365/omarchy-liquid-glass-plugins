@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "id": "akshaybapat.workspace-windows",
+  "name": "Workspace Windows",
+  "version": "1.1.0",
+  "author": "Akshay Bapat",
+  "license": "MIT",
+  "description": "The windows on the current workspace as their real app icons - the focused one bright, the rest dimmed - with no text on the bar at all.",
+  "kinds": [
+    "bar-widget"
+  ],
+  "entryPoints": {
+    "barWidget": "ui/v1_1_0/WorkspaceWindows.qml"
+  },
+  "barWidget": {
+    "displayName": "Workspace Windows",
+    "description": "App icons of every window on the active workspace. Click to focus; hover for the window title.",
+    "category": "Compositor",
+    "aliases": [
+      "workspace-windows",
+      "window-strip",
+      "taskbar"
+    ],
+    "allowMultiple": false,
+    "defaultSection": "left",
+    "defaults": {
+      "maxItems": 10
+    },
+    "schema": [
+      {
+        "key": "maxItems",
+        "type": "integer",
+        "label": "Maximum icons",
+        "description": "How many windows to show before the strip stops growing.",
+        "min": 1,
+        "max": 20,
+        "step": 1,
+        "defaultValue": 10
+      }
+    ]
+  }
+}

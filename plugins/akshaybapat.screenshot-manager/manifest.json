@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": "akshaybapat.screenshot-manager",
+  "name": "Omarchy Screenshot Manager",
+  "version": "0.1.2+akshay.1",
+  "author": "Akshay Bapat; derived from sahzudin",
+  "license": "MIT",
+  "description": "Browse, preview, copy, and delete screenshots taken with omarchy capture.",
+  "kinds": [
+    "bar-widget"
+  ],
+  "entryPoints": {
+    "barWidget": "BarWidget.qml"
+  },
+  "barWidget": {
+    "displayName": "Screenshot Manager",
+    "description": "List, preview, copy, and delete screenshots",
+    "category": "Utilities",
+    "allowMultiple": false,
+    "defaultSection": "right",
+    "defaults": {
+      "showCount": true
+    },
+    "schema": [
+      {
+        "key": "showCount",
+        "type": "boolean",
+        "label": "Show screenshot count",
+        "defaultValue": true
+      },
+      {
+        "key": "icon",
+        "type": "string",
+        "label": "Bar icon (Nerd Font glyph)",
+        "defaultValue": "\udb80\udd00"
+      }
+    ]
+  },
+  "upstream": {
+    "repository": "https://github.com/sahzudin/omarchy-screenshot-manager.git",
+    "revision": "5588ef389651",
+    "id": "io.github.sahzudin.omarchy-screenshot-manager"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "id": "akshaybapat.osd",
+  "name": "Liquid Glass OSD",
+  "version": "1.0.0",
+  "author": "Akshay Bapat",
+  "description": "Sculpted optical Liquid Glass pill OSD with Qt 6.12 Fresnel top-edge sheen shader, Inter tabular typography, and critically-damped progress bar.",
+  "kinds": [
+    "panel"
+  ],
+  "keepLoaded": true,
+  "entryPoints": {
+    "panel": "Osd.qml"
+  },
+  "omarchy": {
+    "clonedFrom": "omarchy.osd"
+  }
+}
