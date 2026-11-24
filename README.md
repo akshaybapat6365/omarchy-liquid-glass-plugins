@@ -2,9 +2,9 @@
 
 # Omarchy Liquid Glass Plugins
 
-**A modular, portable suite of 11 custom & Liquid-Glass-enhanced Quickshell plugins for [Omarchy Linux](https://omarchy.org).**
+**A modular, portable suite of 12 custom & Liquid-Glass-enhanced Quickshell plugins for [Omarchy Linux](https://omarchy.org).**
 
-[![Plugins](https://img.shields.io/badge/plugins-11%20modular-8E9CF5?style=flat-square)](#visual-plugin-gallery)
+[![Plugins](https://img.shields.io/badge/plugins-12%20modular-8E9CF5?style=flat-square)](#visual-plugin-gallery)
 [![Qt 6.12](https://img.shields.io/badge/shaders-Qt%206.12%20.qsb-64D2FF?style=flat-square)](#2-liquid-glass-capsule-osd-akshaybapatosd)
 [![Zero Secrets](https://img.shields.io/badge/privacy-zero%20hardcoded%20paths-5CE1A6?style=flat-square)](#design-principles)
 [![License: MIT](https://img.shields.io/badge/license-MIT-FFB86C?style=flat-square)](LICENSE)
@@ -61,16 +61,17 @@ Every plugin lives cleanly under [`plugins/<plugin-id>/`](plugins/) with its own
 | # | Plugin ID | Short Name | Kind | 1-Line Install |
 | :-: | --- | --- | --- | --- |
 | 1 | [`akshaybapat.help`](plugins/akshaybapat.help/) | `help` | Overlay + CLI | `./install.sh --plugin help --enable` |
-| 2 | [`akshaybapat.osd`](plugins/akshaybapat.osd/) | `osd` | Panel Overlay | `./install.sh --plugin osd --enable` |
-| 3 | [`akshaybapat.everything`](plugins/akshaybapat.everything/) | `everything` | Bar Widget + Service | `./install.sh --plugin everything --enable` |
-| 4 | [`akshaybapat.vitals`](plugins/akshaybapat.vitals/) | `vitals` | Bar Widget | `./install.sh --plugin vitals --enable` |
-| 5 | [`akshaybapat.screenshot-manager`](plugins/akshaybapat.screenshot-manager/) | `screenshot-manager` | Bar Widget | `./install.sh --plugin screenshot-manager --enable` |
-| 6 | [`akshaybapat.ai-usage`](plugins/akshaybapat.ai-usage/) | `ai-usage` | Bar Widget | `./install.sh --plugin ai-usage --enable` |
-| 7 | [`akshaybapat.notification-center`](plugins/akshaybapat.notification-center/) | `notification-center` | Bar Widget + Service | `./install.sh --plugin notification-center --enable` |
-| 8 | [`akshaybapat.system-updates`](plugins/akshaybapat.system-updates/) | `system-updates` | Bar Widget | `./install.sh --plugin system-updates --enable` |
-| 9 | [`akshaybapat.window-shelf`](plugins/akshaybapat.window-shelf/) | `window-shelf` | Bar Widget | `./install.sh --plugin window-shelf --enable` |
-| 10 | [`akshaybapat.workspace-windows`](plugins/akshaybapat.workspace-windows/) | `workspace-windows` | Bar Widget | `./install.sh --plugin workspace-windows --enable` |
-| 11 | [`akshaybapat.app-launcher`](plugins/akshaybapat.app-launcher/) | `app-launcher` | Bar Widget | `./install.sh --plugin app-launcher --enable` |
+| 2 | [`akshaybapat.switcher`](plugins/akshaybapat.switcher/) | `switcher` | Overlay + CLI | `./install.sh --plugin switcher --enable` |
+| 3 | [`akshaybapat.osd`](plugins/akshaybapat.osd/) | `osd` | Panel Overlay | `./install.sh --plugin osd --enable` |
+| 4 | [`akshaybapat.everything`](plugins/akshaybapat.everything/) | `everything` | Bar Widget + Service | `./install.sh --plugin everything --enable` |
+| 5 | [`akshaybapat.vitals`](plugins/akshaybapat.vitals/) | `vitals` | Bar Widget | `./install.sh --plugin vitals --enable` |
+| 6 | [`akshaybapat.screenshot-manager`](plugins/akshaybapat.screenshot-manager/) | `screenshot-manager` | Bar Widget | `./install.sh --plugin screenshot-manager --enable` |
+| 7 | [`akshaybapat.ai-usage`](plugins/akshaybapat.ai-usage/) | `ai-usage` | Bar Widget | `./install.sh --plugin ai-usage --enable` |
+| 8 | [`akshaybapat.notification-center`](plugins/akshaybapat.notification-center/) | `notification-center` | Bar Widget + Service | `./install.sh --plugin notification-center --enable` |
+| 9 | [`akshaybapat.system-updates`](plugins/akshaybapat.system-updates/) | `system-updates` | Bar Widget | `./install.sh --plugin system-updates --enable` |
+| 10 | [`akshaybapat.window-shelf`](plugins/akshaybapat.window-shelf/) | `window-shelf` | Bar Widget | `./install.sh --plugin window-shelf --enable` |
+| 11 | [`akshaybapat.workspace-windows`](plugins/akshaybapat.workspace-windows/) | `workspace-windows` | Bar Widget | `./install.sh --plugin workspace-windows --enable` |
+| 12 | [`akshaybapat.app-launcher`](plugins/akshaybapat.app-launcher/) | `app-launcher` | Bar Widget | `./install.sh --plugin app-launcher --enable` |
 
 ---
 
@@ -89,6 +90,23 @@ Interactive four-tab Liquid Glass overlay (`glass_panel.frag.qsb`) backed by a <
 <p align="center">
   <img src="assets/help-tools.png" alt="Help Center — Custom Tools tab" width="49%">
   <img src="assets/help-guide.png" alt="Help Center — Quick Guide tab" width="49%">
+</p>
+
+---
+
+### 1b. Liquid Glass Visual Window & App Switcher (`akshaybapat.switcher`)
+
+Native Omarchy 4.5 `Alt+Tab` (All Windows) & `Alt+\`` (Same-App) horizontal carousel HUD powered by `shaders/glass_switcher.frag.qsb` and direct `< 1 ms` Hyprland UNIX socket queries (`SwitcherData.py`). Restores minimized **Window Shelf** windows automatically, supports live type-to-filter, `Q` in-place window close, and `H` hide-to-Shelf.
+
+```bash
+./install.sh --plugin switcher --enable
+```
+
+<p align="center">
+  <img src="assets/switcher-preview.png" alt="Liquid Glass All-Windows Switcher HUD" width="100%">
+</p>
+<p align="center">
+  <img src="assets/switcher-same-app-preview.png" alt="Liquid Glass Same-App Switcher HUD" width="76%">
 </p>
 
 ---

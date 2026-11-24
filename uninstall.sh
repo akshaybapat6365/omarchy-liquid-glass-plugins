@@ -14,6 +14,7 @@ BIN_DEST="${HOME}/.local/bin"
 
 PLUGIN_ORDER=(
   "help"
+  "switcher"
   "osd"
   "everything"
   "vitals"
@@ -155,6 +156,14 @@ for short in "${SELECTED[@]}"; do
       echo "    [dry-run] rm -f ${BIN_DEST}/omarchy-help"
     else
       rm -f "${BIN_DEST}/omarchy-help"
+    fi
+  fi
+  if [[ "$short" == "switcher" && -f "${BIN_DEST}/omarchy-switcher" ]]; then
+    echo "    ↳ removing ${BIN_DEST}/omarchy-switcher"
+    if [[ "$DRY_RUN" -eq 1 ]]; then
+      echo "    [dry-run] rm -f ${BIN_DEST}/omarchy-switcher"
+    else
+      rm -f "${BIN_DEST}/omarchy-switcher"
     fi
   fi
 

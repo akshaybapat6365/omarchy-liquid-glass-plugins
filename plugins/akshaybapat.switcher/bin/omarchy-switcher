@@ -1,0 +1,62 @@
+#!/usr/bin/env bash
+# omarchy-switcher — Control the Liquid Glass Visual Window & App Switcher HUD.
+#
+# Usage:
+#   omarchy-switcher [next|prev|same-app|same-app-prev|toggle|close|ping]
+
+set -euo pipefail
+
+PLUGIN_ID="akshaybapat.switcher"
+VERB="${1:-next}"
+
+summon_or_step() {
+  local payload="$1"
+  omarchy-shell shell summon "$PLUGIN_ID" "$payload" 2>/dev/null \
+    || exec omarchy-shell switcher open "$payload"
+}
+
+case "$VERB" in
+  next)
+    summon_or_step '{"mode":"all","step":1}'
+    ;;
+  prev)
+    summon_or_step '{"mode":"all","step":-1}'
+    ;;
+  same-app)
+    summon_or_step '{"mode":"same-app","step":1}'
+    ;;
+  same-app-prev)
+    summon_or_step '{"mode":"same-app","step":-1}'
+    ;;
+  toggle)
+    omarchy-shell shell toggle "$PLUGIN_ID" '{"mode":"all","step":1,"source":"toggle"}' 2>/dev/null \
+      || exec omarchy-shell switcher toggle
+    ;;
+  close)
+    omarchy-shell shell hide "$PLUGIN_ID" 2>/dev/null \
+      || exec omarchy-shell switcher close
+    ;;
+  ping)
+    omarchy-shell shell call "$PLUGIN_ID" ping '{}' 2>/dev/null \
+      || exec omarchy-shell switcher ping
+    ;;
+  -h | --help | help)
+    cat <<'USAGE'
+Usage: omarchy-switcher [command]
+
+Commands:
+  next           Open switcher or advance to next MRU window (default)
+  prev           Open switcher or rewind to previous MRU window
+  same-app       Open Same-App switcher or advance within active app
+  same-app-prev  Open Same-App switcher or rewind within active app
+  toggle         Toggle the Liquid Glass Switcher overlay
+  close          Close the Liquid Glass Switcher overlay
+  ping           Health check
+USAGE
+    exit 0
+    ;;
+  *)
+    echo "omarchy-switcher: unknown command '$VERB'. Try 'omarchy-switcher --help'." >&2
+    exit 2
+    ;;
+esac

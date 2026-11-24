@@ -16,6 +16,7 @@ BIN_DEST="${HOME}/.local/bin"
 
 PLUGIN_ORDER=(
   "help"
+  "switcher"
   "osd"
   "everything"
   "vitals"
@@ -30,6 +31,7 @@ PLUGIN_ORDER=(
 
 declare -A PLUGIN_KIND=(
   [help]="overlay"
+  [switcher]="overlay"
   [osd]="panel"
   [everything]="bar-widget+service"
   [vitals]="bar-widget"
@@ -44,6 +46,7 @@ declare -A PLUGIN_KIND=(
 
 declare -A PLUGIN_DESC=(
   [help]="Liquid Glass Shortcuts, Trackpad Gestures, Custom Tools & Quick Help Center (+ omarchy-help CLI)"
+  [switcher]="Liquid Glass Visual MRU Window & Same-App Switcher HUD (+ omarchy-switcher CLI)"
   [osd]="Optical Liquid Glass capsule OSD with Qt 6.12 Fresnel top-edge sheen shader"
   [everything]="Search & jump to windows, browser tabs, tmux panes, AI agents & Neovim buffers"
   [vitals]="Dual-GPU & hardware telemetry panel (zero dGPU wakes; Rust vitalsd / Python fallback)"
@@ -233,11 +236,16 @@ for short in "${FINAL_PLUGINS[@]}"; do
     cp -a "${src}/." "${dst}/"
   fi
 
-  # Install omarchy-help CLI when akshaybapat.help is installed
+  # Install omarchy-help / omarchy-switcher CLIs when installed
   if [[ "$short" == "help" && -f "${src}/bin/omarchy-help" ]]; then
     run_or_echo mkdir -p "${BIN_DEST}"
     run_or_echo install -m 755 "${src}/bin/omarchy-help" "${BIN_DEST}/omarchy-help"
     echo "    ↳ installed CLI: ${BIN_DEST}/omarchy-help"
+  fi
+  if [[ "$short" == "switcher" && -f "${src}/bin/omarchy-switcher" ]]; then
+    run_or_echo mkdir -p "${BIN_DEST}"
+    run_or_echo install -m 755 "${src}/bin/omarchy-switcher" "${BIN_DEST}/omarchy-switcher"
+    echo "    ↳ installed CLI: ${BIN_DEST}/omarchy-switcher"
   fi
 done
 

@@ -13,7 +13,7 @@ jobs:
       - uses: actions/checkout@v4
       - name: Shell syntax & list test
         run: |
-          bash -n install.sh uninstall.sh PKGBUILD plugins/akshaybapat.help/bin/omarchy-help
+          bash -n install.sh uninstall.sh PKGBUILD plugins/akshaybapat.help/bin/omarchy-help plugins/akshaybapat.switcher/bin/omarchy-switcher
           ./install.sh --list
       - name: Validate plugin manifests, Python helpers & README images
         run: |
@@ -21,7 +21,7 @@ jobs:
           import json, py_compile, re
           from pathlib import Path
           plugins = sorted(Path("plugins").iterdir())
-          assert len(plugins) == 11, f"Expected 11 plugins, got {len(plugins)}"
+          assert len(plugins) == 12, f"Expected 12 plugins, got {len(plugins)}"
           for p in plugins:
               m = json.loads((p / "manifest.json").read_text(encoding="utf-8"))
               for k in ("id", "name", "version", "kinds", "entryPoints"):

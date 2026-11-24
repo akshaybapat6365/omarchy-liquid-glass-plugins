@@ -716,8 +716,11 @@ EXACT_PRIORITY = {
     "full omarchy menu": 2,
     "search everything": 3,
     "overview": 4,
-    "keybindings": 5,
-    "terminal": 6,
+    "switch windows": 5,
+    "switch same app windows": 6,
+    "shortcuts & help": 7,
+    "keybindings": 8,
+    "terminal": 9,
     "browser": 7,
     "file manager": 8,
     "ai claude code": 9,
@@ -994,6 +997,15 @@ def build_gestures():
             "keywords": "three fingers pinch out spread apps search launcher menu",
         },
         {
+            "id": "gesture-pinch-in-everything",
+            "title": "3 Fingers Pinch In",
+            "context": "Trackpad",
+            "gestureType": "pinch-in",
+            "fingers": 3,
+            "description": "Open Search Everything across open windows, browser tabs, agents & files.",
+            "keywords": "three fingers pinch in search everything spotlight tabs windows files",
+        },
+        {
             "id": "gesture-pinch-empty",
             "title": "4 Fingers Pinch Out",
             "context": "Trackpad",
@@ -1001,6 +1013,15 @@ def build_gestures():
             "fingers": 4,
             "description": "Jump straight to a fresh empty desktop workspace for focused work.",
             "keywords": "four fingers pinch out empty workspace fresh desktop clean",
+        },
+        {
+            "id": "gesture-pinch-in-shelf",
+            "title": "4 Fingers Pinch In",
+            "context": "Trackpad",
+            "gestureType": "pinch-in",
+            "fingers": 4,
+            "description": "Tuck the active window cleanly onto the Top-Bar Window Shelf.",
+            "keywords": "four fingers pinch in hide minimize window shelf top bar",
         },
         {
             "id": "gesture-quick-look",
@@ -1115,17 +1136,29 @@ def count_screenshots() -> int:
 
 
 def build_tools(default_sink, workspaces_json, clients_json, codex_ver, nl_enabled, nl_temp):
-    # 1. 3D Spatial Audio
+    # 1. Studio & 3D Speaker Audio
     sink = (default_sink or "").strip()
     spatial_bin = HOME / ".local" / "bin" / "omarchy-audio-spatial"
-    speaker_profile = read_text_file(HOME / ".local" / "state" / "omarchy" / "speaker-profile") or "warm"
-    if sink == "omarchy_speaker_spatial":
-        audio_status, audio_tone = "3D Spatial Active", "ok"
+    speaker_profile = read_text_file(HOME / ".local" / "state" / "omarchy" / "speaker-profile") or "studio-deep"
+    if sink == "omarchy_speaker_studio":
+        audio_status, audio_tone = "Studio Deep", "ok"
+        audio_metric = "AVX2/FMA 7-stage Studio DSP · 82 Hz Klippel bass + ISO 226 live"
+    elif sink == "omarchy_speaker_studio_spatial":
+        audio_status, audio_tone = "Studio Spatial", "ok"
+        audio_metric = "Wide 3D FDTR-XTC cinema stage + anchored physical & harmonic bass"
+    elif sink == "omarchy_speaker_studio_ref":
+        audio_status, audio_tone = "Studio Reference", "ok"
+        audio_metric = "Harman/Olive neutral reference FIR · Klippel excursion guard"
+    elif sink == "omarchy_speaker_studio_voice":
+        audio_status, audio_tone = "Studio Voice", "ok"
+        audio_metric = "Ultra-clear speech & podcast articulation · 95 Hz bass floor"
+    elif sink == "omarchy_speaker_spatial":
+        audio_status, audio_tone = "Legacy Spatial", "accent"
         audio_metric = "Choueiri FDTR-XTC 2×2 stereo soundstage · Zero mic monitor"
     elif sink == "omarchy_speaker_spatial_71":
         audio_status, audio_tone = "7.1 SOFA Active", "ok"
         audio_metric = "MIT KEMAR 7.1 virtual surround + FDTR-XTC active"
-    elif sink == "easyeffects_sink" or "warm" in sink:
+    elif sink in ("easyeffects_sink", "omarchy_speaker_engine") or "warm" in sink:
         audio_status, audio_tone = f"Warm ({speaker_profile})", "accent"
         audio_metric = f"Built-in speaker DSP active · Profile: {speaker_profile}"
     elif sink:
@@ -1133,7 +1166,7 @@ def build_tools(default_sink, workspaces_json, clients_json, codex_ver, nl_enabl
         audio_metric = f"Active sink: {sink}"
     else:
         audio_status, audio_tone = ("Ready" if spatial_bin.is_file() else "Unavailable"), "muted"
-        audio_metric = "Choueiri FDTR-XTC 3D Spatial & 7.1 SOFA laptop speaker DSP"
+        audio_metric = "XPS 17 9720 Studio Audio DSP (Deep, Spatial, Reference, Voice)"
 
     # 2. Battery Care
     bat_dir = Path("/sys/class/power_supply/BAT0")
@@ -1247,31 +1280,38 @@ def build_tools(default_sink, workspaces_json, clients_json, codex_ver, nl_enabl
     tools = [
         {
             "id": "tool-spatial-audio",
-            "title": "3D Spatial Audio",
+            "title": "Studio Speaker Audio",
             "status": audio_status,
             "tone": audio_tone,
             "metric": audio_metric,
             "actions": [
                 {
-                    "label": "3D Spatial",
-                    "command": f"{spatial_bin} spatial",
-                    "active": sink == "omarchy_speaker_spatial",
+                    "label": "Studio Deep",
+                    "command": f"OMARCHY_NOTIFY=1 {HOME / '.local' / 'bin' / 'speaker-profile'} studio-deep",
+                    "active": sink == "omarchy_speaker_studio",
                     "closeOnRun": False,
-                    "toast": "Switching speakers to 3D Spatial…",
+                    "toast": "Switching speakers to Studio Deep…",
                 },
                 {
-                    "label": "7.1 SOFA",
-                    "command": f"{spatial_bin} spatial-71",
-                    "active": sink == "omarchy_speaker_spatial_71",
+                    "label": "Studio Spatial",
+                    "command": f"OMARCHY_NOTIFY=1 {HOME / '.local' / 'bin' / 'speaker-profile'} studio-spatial",
+                    "active": sink == "omarchy_speaker_studio_spatial",
                     "closeOnRun": False,
-                    "toast": "Switching speakers to 7.1 SOFA…",
+                    "toast": "Switching speakers to Studio Spatial…",
                 },
                 {
-                    "label": "Warm Deep",
-                    "command": f"OMARCHY_NOTIFY=1 {HOME / '.local' / 'bin' / 'speaker-profile'} warm-deep",
-                    "active": sink not in ("omarchy_speaker_spatial", "omarchy_speaker_spatial_71") and speaker_profile == "warm-deep",
+                    "label": "Reference",
+                    "command": f"OMARCHY_NOTIFY=1 {HOME / '.local' / 'bin' / 'speaker-profile'} studio-ref",
+                    "active": sink == "omarchy_speaker_studio_ref",
                     "closeOnRun": False,
-                    "toast": "Switching speakers to Warm Deep…",
+                    "toast": "Switching speakers to Studio Reference…",
+                },
+                {
+                    "label": "Voice",
+                    "command": f"OMARCHY_NOTIFY=1 {HOME / '.local' / 'bin' / 'speaker-profile'} studio-voice",
+                    "active": sink == "omarchy_speaker_studio_voice",
+                    "closeOnRun": False,
+                    "toast": "Switching speakers to Studio Voice…",
                 },
             ],
         },
@@ -1417,6 +1457,52 @@ def build_tools(default_sink, workspaces_json, clients_json, codex_ver, nl_enabl
                 },
             ],
         },
+        {
+            "id": "tool-switcher",
+            "title": "Visual Window Switcher",
+            "status": "Alt+Tab · Alt+`",
+            "tone": "ok",
+            "metric": f"Liquid Glass MRU switcher across {win_count or 0} windows + Shelf · Type to filter, Q close, H hide",
+            "actions": [
+                {
+                    "label": "All Windows",
+                    "command": f"{HOME / '.local' / 'bin' / 'omarchy-switcher'} toggle",
+                    "active": False,
+                    "closeOnRun": True,
+                    "delayMs": 40,
+                },
+                {
+                    "label": "Same App",
+                    "command": f"{HOME / '.local' / 'bin' / 'omarchy-switcher'} same-app",
+                    "active": False,
+                    "closeOnRun": True,
+                    "delayMs": 40,
+                },
+            ],
+        },
+        {
+            "id": "tool-doctor",
+            "title": "System Health Doctor",
+            "status": "8 Checks Ready",
+            "tone": "ok",
+            "metric": "Verifies swipe gestures, overview, studio audio, daemons, updates, thermals, battery & 4K scale",
+            "actions": [
+                {
+                    "label": "Run Doctor",
+                    "command": f"{HOME / '.local' / 'bin' / 'omarchy-doctor'} --notify",
+                    "active": False,
+                    "closeOnRun": False,
+                    "toast": "Running System Health Doctor…",
+                },
+                {
+                    "label": "Auto-Heal",
+                    "command": f"{HOME / '.local' / 'bin' / 'omarchy-doctor'} --heal --notify",
+                    "active": False,
+                    "closeOnRun": False,
+                    "toast": "Auto-healing gestures & services…",
+                },
+            ],
+        },
     ]
 
     for tool in tools:
@@ -1462,15 +1548,15 @@ def build_guides():
                     "keys": ["3↑"],
                 },
                 {
-                    "text": "Swipe 2 fingers left/right inside Overview to reach empty desks.",
-                    "keys": ["2↔"],
+                    "text": "Swipe 2 fingers left/right inside Overview — or press Ctrl+1–9 / Ctrl+N.",
+                    "keys": ["Ctrl", "1–9"],
                 },
                 {
-                    "text": "Drag any window between desks, or drag a desk card to reorder.",
-                    "keys": [],
+                    "text": "Switch any window visually (Alt+Tab) or same-app windows (Alt+`).",
+                    "keys": ["Alt", "Tab"],
                 },
                 {
-                    "text": "Hide the active window to the top-bar shelf; click chip to restore.",
+                    "text": "Hide the active window to the top-bar shelf (or 4-finger pinch in).",
                     "keys": ["Super", "H"],
                 },
             ],

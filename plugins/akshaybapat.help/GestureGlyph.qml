@@ -150,23 +150,26 @@ Item {
           drawFingerDot(ctx, rx, cy, n >= 4 ? 2.75 : 3.25, halo)
         }
 
-      } else if (t === "pinch-out") {
+      } else if (t === "pinch-out" || t === "pinch-in") {
         var cx = w / 2
         var py = h / 2 + 1
+        var isIn = (t === "pinch-in")
         var angles = n >= 4
           ? [-2.35, -0.78, 0.78, 2.35]
           : [-Math.PI / 2, 0.55, Math.PI - 0.55]
 
-        // Quiet center anchor point
+        // Quiet center anchor point (slightly brighter on pinch-in)
         ctx.beginPath()
-        ctx.arc(cx, py, 2.0, 0, Math.PI * 2)
-        ctx.fillStyle = "rgba(220,234,255,0.35)"
+        ctx.arc(cx, py, isIn ? 2.8 : 2.0, 0, Math.PI * 2)
+        ctx.fillStyle = isIn ? strokeBright : "rgba(220,234,255,0.35)"
         ctx.fill()
 
         for (var k = 0; k < angles.length; k++) {
           var ang = angles[k]
-          var rDot = n >= 4 ? 9.5 : 9.0
-          var rTip = n >= 4 ? 21.5 : 21.0
+          var rOuter = n >= 4 ? 21.5 : 21.0
+          var rInner = n >= 4 ? 9.5 : 9.0
+          var rDot = isIn ? rOuter : rInner
+          var rTip = isIn ? rInner : rOuter
           var dx = cx + Math.cos(ang) * rDot
           var dy = py + Math.sin(ang) * rDot
           var tx = cx + Math.cos(ang) * rTip
@@ -179,7 +182,7 @@ Item {
           ctx.lineWidth = 1.6
           ctx.stroke()
 
-          drawArrowHead(ctx, tx, ty, ang, 4.1)
+          drawArrowHead(ctx, tx, ty, isIn ? (ang + Math.PI) : ang, 4.1)
           drawFingerDot(ctx, dx, dy, n >= 4 ? 2.6 : 2.9, halo)
         }
 

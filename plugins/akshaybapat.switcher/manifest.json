@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "id": "akshaybapat.switcher",
+  "name": "Liquid Glass Switcher",
+  "version": "1.0.0",
+  "author": "Akshay Bapat",
+  "description": "Apple-grade Liquid Glass Visual Window & App Switcher HUD with live MRU ordering, Same-App mode, type-to-filter, and Top-Bar Shelf restore.",
+  "kinds": [
+    "overlay"
+  ],
+  "keepLoaded": true,
+  "entryPoints": {
+    "overlay": "Switcher.qml"
+  }
+}

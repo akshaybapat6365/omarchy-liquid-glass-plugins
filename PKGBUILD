@@ -1,8 +1,8 @@
 # Maintainer: Akshay Bapat <https://github.com/akshaybapat6365>
 pkgname=omarchy-liquid-glass-plugins
-pkgver=1.0.0
+pkgver=1.1.0
 pkgrel=1
-pkgdesc='Modular Liquid Glass Quickshell plugin suite for Omarchy Linux (11 plugins)'
+pkgdesc='Modular Liquid Glass Quickshell plugin suite for Omarchy Linux (12 plugins)'
 arch=('any')
 url='https://github.com/akshaybapat6365/omarchy-liquid-glass-plugins'
 license=('MIT')
@@ -28,8 +28,9 @@ package() {
   install -Dm644 "$srcroot/README.md" "$share/README.md"
   install -Dm644 "$srcroot/LICENSE" "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
 
-  # Install omarchy-help CLI globally
+  # Install omarchy-help & omarchy-switcher CLIs globally
   install -Dm755 "$srcroot/plugins/akshaybapat.help/bin/omarchy-help" "$pkgdir/usr/bin/omarchy-help"
+  install -Dm755 "$srcroot/plugins/akshaybapat.switcher/bin/omarchy-switcher" "$pkgdir/usr/bin/omarchy-switcher"
 
   # Convenience user installer wrapper
   install -dm755 "$pkgdir/usr/bin"
