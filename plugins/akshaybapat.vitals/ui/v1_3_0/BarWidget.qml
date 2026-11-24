@@ -23,8 +23,8 @@ BarWidget {
   property bool gpuAsleep: false
   property string gpuClass: "cool"
 
-  readonly property color barInk: bar ? bar.barForeground : Commons.Color.foreground
-  readonly property color barSurface: bar ? bar.barBackground : Commons.Color.background
+  readonly property color barInk: (bar && bar.barForeground !== undefined) ? bar.barForeground : Commons.Color.bar.text
+  readonly property color barSurface: Commons.Color.bar.background
   readonly property color warnInk: {
     var rgb = Model.warnRgb([barInk.r, barInk.g, barInk.b], [barSurface.r, barSurface.g, barSurface.b])
     return Qt.rgba(rgb[0], rgb[1], rgb[2], 1)

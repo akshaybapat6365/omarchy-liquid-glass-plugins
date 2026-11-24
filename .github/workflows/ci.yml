@@ -1,0 +1,45 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Shell syntax & list test
+        run: |
+          bash -n install.sh uninstall.sh PKGBUILD plugins/akshaybapat.help/bin/omarchy-help
+          ./install.sh --list
+      - name: Validate plugin manifests, Python helpers & README images
+        run: |
+          python3 - <<'PY'
+          import json, py_compile, re
+          from pathlib import Path
+          plugins = sorted(Path("plugins").iterdir())
+          assert len(plugins) == 11, f"Expected 11 plugins, got {len(plugins)}"
+          for p in plugins:
+              m = json.loads((p / "manifest.json").read_text(encoding="utf-8"))
+              for k in ("id", "name", "version", "kinds", "entryPoints"):
+                  assert k in m, f"Missing {k} in {p}/manifest.json"
+              for ep in m["entryPoints"].values():
+                  assert (p / ep).exists(), f"Missing entrypoint {p}/{ep}"
+          for py in Path("plugins").rglob("*.py"):
+              py_compile.compile(str(py), doraise=True)
+          for md in Path(".").rglob("README.md"):
+              txt = md.read_text(encoding="utf-8")
+              for m in re.finditer(r"!\[[^\]]*\]\(([^)]+)\)", txt):
+                  img = m.group(1)
+                  if not img.startswith("http"):
+                      assert (md.parent / img).exists(), f"Missing image {img} in {md}"
+          print("All 11 plugins, manifests, Python helpers, and README images passed!")
+          PY
+      - name: Sandboxed install & uninstall lifecycle test
+        run: |
+          TEST_HOME="$(mktemp -d)"
+          HOME="$TEST_HOME" XDG_CONFIG_HOME="$TEST_HOME/.config" ./install.sh --all --no-rescan
+          HOME="$TEST_HOME" XDG_CONFIG_HOME="$TEST_HOME/.config" ./uninstall.sh --all
