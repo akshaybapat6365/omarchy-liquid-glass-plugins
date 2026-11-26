@@ -5,10 +5,10 @@ A keyboard-first, app-grouped Notification Center for [Omarchy](https://omarchy.
 Derived from [Shavanced/omarchy-notification-center-plugin](https://github.com/Shavanced/omarchy-notification-center-plugin) (MIT) with a complete 2.0 Liquid Glass architecture, contrast-solved alarm inks, search filtering, two-step Clear All confirmation, and live DND state.
 
 <p align="center">
-  <img src="preview.png" alt="Notification Center grouped panel" width="440">
+  <a href="preview.png"><img src="preview.png" alt="Notification Center grouped panel (4K)" width="100%"></a>
 </p>
 <p align="center">
-  <img src="screenshots/bar-states.png" alt="Bar bell states: Idle, Unread, Urgent" width="66%">
+  <a href="screenshots/bar-states.png"><img src="screenshots/bar-states.png" alt="Bar bell states: Idle, Unread, Urgent, DND (4K)" width="100%"></a>
 </p>
 
 ## Highlights

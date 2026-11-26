@@ -5,7 +5,7 @@ Instant screenshot gallery, fullscreen lightbox, and clipboard manager for the [
 Derived from [sahzudin/omarchy-screenshot-manager](https://github.com/sahzudin/omarchy-screenshot-manager) (MIT), fixing clipboard persistence after closing the panel (detached `wl-copy` process group) and adding native `screenshotd` support.
 
 <p align="center">
-  <img src="preview.png" alt="Screenshot Manager panel" width="560">
+  <a href="preview.png"><img src="preview.png" alt="Screenshot Manager panel & Lightbox (4K)" width="100%"></a>
 </p>
 
 ## Highlights

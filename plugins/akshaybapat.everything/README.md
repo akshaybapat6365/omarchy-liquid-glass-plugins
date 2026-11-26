@@ -5,7 +5,7 @@ List, fuzzy-search, and jump directly to every Hyprland window, Chromium browser
 Derived from [brianblakely/omarchy-everything](https://github.com/brianblakely/omarchy-everything) (MIT) with Liquid Glass typography, safer non-stealing Ghostty discovery, richer metadata search, and optional sub-10 ms Rust daemon acceleration (`everythingd`).
 
 <p align="center">
-  <img src="preview.png" alt="Search Everything Liquid Glass panel" width="88%">
+  <a href="preview.png"><img src="preview.png" alt="Search Everything Liquid Glass panel (4K)" width="100%"></a>
 </p>
 
 ## What Changed in This Fork

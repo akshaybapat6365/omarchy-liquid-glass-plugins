@@ -3,11 +3,11 @@
 Native **Omarchy 4.5** visual MRU window and same-app switcher overlay powered by a compiled **Qt 6.12 `.qsb`** smoked-obsidian optical glass shader (`shaders/glass_switcher.frag.qsb`) and a direct `< 1 ms` Hyprland UNIX socket engine (`SwitcherData.py`).
 
 <p align="center">
-  <img src="preview.png" alt="Liquid Glass All-Windows Switcher HUD" width="100%">
+  <a href="preview.png"><img src="preview.png" alt="Liquid Glass All-Windows Switcher HUD (4K)" width="100%"></a>
 </p>
 
 <p align="center">
-  <img src="preview-same-app.png" alt="Liquid Glass Same-App Switcher HUD" width="76%">
+  <a href="preview-same-app.png"><img src="preview-same-app.png" alt="Liquid Glass Same-App Switcher HUD (4K)" width="100%"></a>
 </p>
 
 ## Highlights

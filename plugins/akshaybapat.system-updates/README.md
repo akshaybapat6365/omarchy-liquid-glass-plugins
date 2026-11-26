@@ -5,7 +5,7 @@ Unified Arch, AUR, Flatpak, Omarchy, mise, and shell add-on update indicator wit
 Derived from [JJDizz1L/dizziee.system-updates](https://github.com/JJDizz1L/dizziee.system-updates) (MIT) with three key reliability improvements: serialized `checkupdates` execution (fixing lock races between Arch and Omarchy checks), honest **Check failed** states (never silently reporting failed checks as "Up to date"), and E-core background scheduling (`os.sched_setaffinity` on hybrid CPUs).
 
 <p align="center">
-  <img src="preview.png" alt="System Updates panel" width="540">
+  <a href="preview.png"><img src="preview.png" alt="System Updates panel (4K)" width="100%"></a>
 </p>
 
 ## Highlights

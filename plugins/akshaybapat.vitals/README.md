@@ -4,11 +4,15 @@ A calm, tabbed btop-style system and dual-GPU monitor for the [Omarchy](https://
 
 Derived from [Woogy7/omarchy-vitals](https://github.com/Woogy7/omarchy-vitals) (MIT) with an expanded Dual-GPU dashboard (`ui/v1_3_0`), independent PCI-keyed GPU histories, and Rust daemon support.
 
-<p align="center"><img src="preview.png" alt="Vitals — CPU tab" width="520"></p>
+<p align="center"><a href="preview.png"><img src="preview.png" alt="Vitals — CPU & Dual-GPU tab (4K)" width="100%"></a></p>
 <p align="center">
-  <img src="docs/memory.png" alt="Memory tab" width="31%">
-  <img src="docs/network.png" alt="Network tab" width="31%">
-  <img src="docs/processes.png" alt="Processes tab" width="31%">
+  <a href="docs/memory.png"><img src="docs/memory.png" alt="Memory tab (4K)" width="100%"></a>
+</p>
+<p align="center">
+  <a href="docs/network.png"><img src="docs/network.png" alt="Network tab (4K)" width="100%"></a>
+</p>
+<p align="center">
+  <a href="docs/processes.png"><img src="docs/processes.png" alt="Processes tab (4K)" width="100%"></a>
 </p>
 
 ## Highlights

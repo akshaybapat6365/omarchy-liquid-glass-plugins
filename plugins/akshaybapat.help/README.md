@@ -3,12 +3,16 @@
 A Liquid Glass interactive **Shortcuts, Trackpad Gestures, Custom Tools & Quick Help Center** overlay for the [Omarchy](https://omarchy.org) shell, powered by a compiled Qt 6.12 optical glass fragment shader (`shaders/glass_panel.frag.qsb`) and a fast pure-Python standard-library live data engine (`HelpData.py`, <35 ms wall time, zero dGPU wakes).
 
 <p align="center">
-  <img src="preview.png" alt="Shortcuts tab" width="49%">
-  <img src="preview-gestures.png" alt="Trackpad Gestures tab" width="49%">
+  <a href="preview-tools.png"><img src="preview-tools.png" alt="Custom Tools tab (4K)" width="100%"></a>
 </p>
 <p align="center">
-  <img src="preview-tools.png" alt="Custom Tools tab" width="49%">
-  <img src="preview-guide.png" alt="Quick Guide tab" width="49%">
+  <a href="preview-gestures.png"><img src="preview-gestures.png" alt="Trackpad Gestures tab (4K)" width="100%"></a>
+</p>
+<p align="center">
+  <a href="preview.png"><img src="preview.png" alt="Shortcuts tab (4K)" width="100%"></a>
+</p>
+<p align="center">
+  <a href="preview-guide.png"><img src="preview-guide.png" alt="Quick Guide tab (4K)" width="100%"></a>
 </p>
 
 ## Highlights

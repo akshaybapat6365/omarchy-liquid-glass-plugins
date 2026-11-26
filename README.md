@@ -14,15 +14,19 @@
 </div>
 
 <p align="center">
-  <img src="assets/bar-widgets-strip.png" alt="Omarchy Liquid Glass Top Bar Plugin Suite" width="100%">
+  <a href="assets/bar-widgets-strip.png"><img src="assets/bar-widgets-strip.png" alt="Omarchy Liquid Glass Top Bar Plugin Suite (4K)" width="100%"></a>
 </p>
 <p align="center">
-  <img src="assets/help-tools.png" alt="Shortcuts, 12 Gestures & 11 Live Custom Tools" width="49%">
-  <img src="assets/switcher-preview.png" alt="Visual Window Switcher (Alt+Tab)" width="49%">
+  <a href="assets/omarchy-menu-preview.png"><img src="assets/omarchy-menu-preview.png" alt="Restored Full Omarchy Menu & Studio Speaker Profiles (4K)" width="100%"></a>
 </p>
 <p align="center">
-  <img src="assets/omarchy-menu-preview.png" alt="Restored Full Omarchy Menu & Studio Speaker Profiles" width="49%">
-  <img src="assets/osd-liquid-glass.png" alt="Qt 6.12 Liquid Glass Capsule OSD" width="49%">
+  <a href="assets/help-tools.png"><img src="assets/help-tools.png" alt="Shortcuts, 12 Gestures & 11 Live Custom Tools (4K)" width="100%"></a>
+</p>
+<p align="center">
+  <a href="assets/switcher-preview.png"><img src="assets/switcher-preview.png" alt="Visual Window Switcher Alt+Tab (4K)" width="100%"></a>
+</p>
+<p align="center">
+  <a href="assets/osd-liquid-glass.png"><img src="assets/osd-liquid-glass.png" alt="Qt 6.12 Liquid Glass Capsule OSD (4K)" width="100%"></a>
 </p>
 
 ---
@@ -92,12 +96,16 @@ Interactive four-tab Liquid Glass overlay (`glass_panel.frag.qsb`) backed by a <
 ```
 
 <p align="center">
-  <img src="assets/help-shortcuts.png" alt="Help Center — Shortcuts tab" width="49%">
-  <img src="assets/help-gestures.png" alt="Help Center — Trackpad Gestures tab" width="49%">
+  <a href="assets/help-shortcuts.png"><img src="assets/help-shortcuts.png" alt="Help Center — Shortcuts tab (4K)" width="100%"></a>
 </p>
 <p align="center">
-  <img src="assets/help-tools.png" alt="Help Center — Custom Tools tab" width="49%">
-  <img src="assets/help-guide.png" alt="Help Center — Quick Guide tab" width="49%">
+  <a href="assets/help-gestures.png"><img src="assets/help-gestures.png" alt="Help Center — Trackpad Gestures tab (4K)" width="100%"></a>
+</p>
+<p align="center">
+  <a href="assets/help-tools.png"><img src="assets/help-tools.png" alt="Help Center — Custom Tools tab (4K)" width="100%"></a>
+</p>
+<p align="center">
+  <a href="assets/help-guide.png"><img src="assets/help-guide.png" alt="Help Center — Quick Guide tab (4K)" width="100%"></a>
 </p>
 
 ---
@@ -111,10 +119,10 @@ Native Omarchy 4.5 `Alt+Tab` (All Windows) & `Alt+\`` (Same-App) horizontal caro
 ```
 
 <p align="center">
-  <img src="assets/switcher-preview.png" alt="Liquid Glass All-Windows Switcher HUD" width="100%">
+  <a href="assets/switcher-preview.png"><img src="assets/switcher-preview.png" alt="Liquid Glass All-Windows Switcher HUD (4K)" width="100%"></a>
 </p>
 <p align="center">
-  <img src="assets/switcher-same-app-preview.png" alt="Liquid Glass Same-App Switcher HUD" width="76%">
+  <a href="assets/switcher-same-app-preview.png"><img src="assets/switcher-same-app-preview.png" alt="Liquid Glass Same-App Switcher HUD (4K)" width="100%"></a>
 </p>
 
 ---
@@ -128,7 +136,7 @@ Drop-in optical glass capsule replacement for Omarchy's On-Screen Display, power
 ```
 
 <p align="center">
-  <img src="assets/osd-liquid-glass.png" alt="Liquid Glass OSD capsules rendered with Qt 6.12 glass_pill.frag.qsb" width="100%">
+  <a href="assets/osd-liquid-glass.png"><img src="assets/osd-liquid-glass.png" alt="Liquid Glass OSD capsules rendered with Qt 6.12 glass_pill.frag.qsb (4K)" width="100%"></a>
 </p>
 
 ---
@@ -142,7 +150,7 @@ Fuzzy-search and jump directly to every Hyprland window, Chromium browser tab, t
 ```
 
 <p align="center">
-  <img src="assets/everything-preview.png" alt="Search Everything Liquid Glass panel" width="88%">
+  <a href="assets/everything-preview.png"><img src="assets/everything-preview.png" alt="Search Everything Liquid Glass panel (4K)" width="100%"></a>
 </p>
 
 ---
@@ -156,7 +164,7 @@ Calm, tabbed btop-style system monitor (**CPU · Memory · Disks · Network · G
 ```
 
 <p align="center">
-  <img src="assets/vitals-preview.png" alt="Hardware & Dual-GPU Vitals panel" width="520">
+  <a href="assets/vitals-preview.png"><img src="assets/vitals-preview.png" alt="Hardware & Dual-GPU Vitals panel (4K)" width="100%"></a>
 </p>
 
 ---
@@ -170,7 +178,7 @@ Instant screenshot gallery, fullscreen lightbox (`Esc` / arrows), and recoverabl
 ```
 
 <p align="center">
-  <img src="assets/screenshot-manager-preview.png" alt="Screenshot Manager panel" width="540">
+  <a href="assets/screenshot-manager-preview.png"><img src="assets/screenshot-manager-preview.png" alt="Screenshot Manager panel & Lightbox (4K)" width="100%"></a>
 </p>
 
 ---
@@ -184,7 +192,7 @@ Displays every configured AI provider simultaneously as precision 22 px circular
 ```
 
 <p align="center">
-  <img src="assets/ai-usage-preview.png" alt="Multi-Provider AI Usage bar strip and dual panel (synthetic data)" width="100%">
+  <a href="assets/ai-usage-preview.png"><img src="assets/ai-usage-preview.png" alt="Multi-Provider AI Usage bar strip and dual panel (4K)" width="100%"></a>
 </p>
 
 ---
@@ -198,7 +206,7 @@ Keyboard-first, app-grouped Notification Center that reads Omarchy's existing fi
 ```
 
 <p align="center">
-  <img src="assets/notification-center-preview.png" alt="Liquid Glass Notification Center panel" width="420">
+  <a href="assets/notification-center-preview.png"><img src="assets/notification-center-preview.png" alt="Liquid Glass Notification Center panel (4K)" width="100%"></a>
 </p>
 
 ---
@@ -212,7 +220,7 @@ Tracks Arch (`pacman`), AUR (`yay`/`paru`), Flatpak, Omarchy core, shell plugins
 ```
 
 <p align="center">
-  <img src="assets/system-updates-preview.png" alt="Unified System Updates panel" width="540">
+  <a href="assets/system-updates-preview.png"><img src="assets/system-updates-preview.png" alt="Unified System Updates panel (4K)" width="100%"></a>
 </p>
 
 ---
