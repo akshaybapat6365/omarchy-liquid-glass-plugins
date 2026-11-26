@@ -16,18 +16,26 @@
 <p align="center">
   <img src="assets/bar-widgets-strip.png" alt="Omarchy Liquid Glass Top Bar Plugin Suite" width="100%">
 </p>
+<p align="center">
+  <img src="assets/help-tools.png" alt="Shortcuts, 12 Gestures & 11 Live Custom Tools" width="49%">
+  <img src="assets/switcher-preview.png" alt="Visual Window Switcher (Alt+Tab)" width="49%">
+</p>
+<p align="center">
+  <img src="assets/omarchy-menu-preview.png" alt="Restored Full Omarchy Menu & Studio Speaker Profiles" width="49%">
+  <img src="assets/osd-liquid-glass.png" alt="Qt 6.12 Liquid Glass Capsule OSD" width="49%">
+</p>
 
 ---
 
 ## Quick Start
 
-Install the entire 11-plugin suite in one command, or cherry-pick individual plugins cleanly without disturbing your existing bar layout:
+Install the entire 12-plugin suite in one command, or cherry-pick individual plugins cleanly without disturbing your existing bar layout:
 
 ```bash
 git clone https://github.com/akshaybapat6365/omarchy-liquid-glass-plugins.git
 cd omarchy-liquid-glass-plugins
 
-# Inspect all 11 plugins
+# Inspect all 12 plugins
 ./install.sh --list
 
 # Install everything (+ omarchy-help CLI into ~/.local/bin)
